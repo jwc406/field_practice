@@ -2,10 +2,10 @@ import React from "react";
 import "./App.css";
 
 export default function App() {
-  getData(1);
-  async function getData(id: number) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async function getData() {
     try {
-      const data = await fetch(`/jw-users/${id}`)
+      const data = await fetch("/jw-users")
         .then((res) => res.json())
         .then((res) => {
           console.log(res);
