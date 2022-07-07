@@ -1,35 +1,39 @@
-import React, { useEffect, useState } from "react";
 import "./App.css";
+import GetData from "./GetData";
 
-export default function App() {
-  const [a, setA] = useState<any>();
-  useEffect(() => {
-    getData();
-  }, []);
-  // setA(getData());
-  async function getData() {
-    try {
-      const data = await fetch("http://localhost:3000/jw-users")
-        .then((res) => {
-          // setA(res.json());
-          // console.log("a", a);
-          console.log(res);
-        })
-        .then((res) => {
-          // setA(res);
-          // console.log(res);
-        });
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
-  }
+// const fetcher = () =>
+//   axios.get("http://localhost:3001/jw-users").then((res) => res.data);
 
+// export default function App() {
+//   // const [a, setA] = useState<any>();
+//   // useEffect(() => {
+//   // getData();
+//   // }, []);
+//   // setA(getData());
+//   getData();
+//   async function getData() {
+//     try {
+//       const data = await fetch("http://localhost:3000/jw-users")
+//         .then((res) => {
+//           setA(res.json());
+//           // console.log("a", a);
+//           console.log(res);
+//         })
+//         .then((res) => {
+//           // setA(res);
+//           // console.log(res);
+//         });
+//       return data;
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   }
+
+function App() {
   return (
     <div className="App">
-      <header className="App-header" />
-      <h2>유저를 등록하세요 😙</h2>
-      {/* <div>{a}</div> */}
+      <GetData />
     </div>
   );
 }
+export default App;

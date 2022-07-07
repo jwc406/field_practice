@@ -21,6 +21,11 @@ export class JwUsersController {
     return await this.jwUsersService.getAll();
   }
 
+  // @Get()
+  // async getAll() {
+  //   return await this.jwUsersService.getAll();
+  // }
+
   @Get('/:id')
   async getOne(@Param('id') JwId: number): Promise<JwUser[]> {
     console.log(JwId);
