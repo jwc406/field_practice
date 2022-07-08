@@ -6,9 +6,6 @@ export type JwUserDocument = JwUser & Document;
 @Schema()
 export class JwUser {
   @Prop()
-  id: number;
-
-  @Prop()
   name: string;
 
   @Prop()

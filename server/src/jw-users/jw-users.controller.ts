@@ -21,15 +21,10 @@ export class JwUsersController {
     return await this.jwUsersService.getAll();
   }
 
-  // @Get()
-  // async getAll() {
-  //   return await this.jwUsersService.getAll();
-  // }
-
-  @Get('/:id')
-  async getOne(@Param('id') JwId: number): Promise<JwUser[]> {
-    console.log(JwId);
-    return await this.jwUsersService.getOne(JwId);
+  @Get('/:name')
+  async getOne(@Param('name') userName: string): Promise<JwUser[]> {
+    console.log(userName);
+    return await this.jwUsersService.getOne(userName);
   }
 
   @Post()
@@ -37,13 +32,16 @@ export class JwUsersController {
     return await this.jwUsersService.create(JwData);
   }
 
-  @Patch('/:id')
-  async update(@Param('id') JwId: number, @Body() updateData: UpdateUserDto) {
-    return this.jwUsersService.update(JwId, updateData);
+  @Patch('/:name')
+  async update(
+    @Param('name') userName: string,
+    @Body() updateData: UpdateUserDto,
+  ) {
+    return this.jwUsersService.update(userName, updateData);
   }
 
-  @Delete('/:id')
-  async delete(@Param('id') JwId: number) {
-    return this.jwUsersService.delete(JwId);
+  @Delete('/:name')
+  async delete(@Param('name') userName: string) {
+    return this.jwUsersService.delete(userName);
   }
 }

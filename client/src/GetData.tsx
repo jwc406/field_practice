@@ -11,14 +11,8 @@ function GetData() {
     return (
       <>
         <tr>
-          <th>id</th>
-          <th>이름</th>
-          <th>직업</th>
-          <th>주소</th>
-        </tr>
-        <tr>
-          <td>{value.id}</td>
           <td>{value.name}</td>
+          <td>{value.age}</td>
           <td>{value.job}</td>
           <td>{value.address}</td>
         </tr>

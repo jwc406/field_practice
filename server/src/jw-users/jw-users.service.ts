@@ -15,54 +15,31 @@ export class JwUsersService {
     return await this.JwUserModel.find().exec();
   }
 
-  async getOne(id: number) {
-    return await this.JwUserModel.find({ id: id });
+  async getOne(name: string) {
+    return await this.JwUserModel.find({ name: name });
   }
 
   async create(JwData: CreateUserDto) {
-    const latestId = await this.JwUserModel.findOne();
     return await this.JwUserModel.create({
       ...JwData,
-      id: parseInt(latestId ? latestId.id : 0) + 1,
     });
   }
 
-  async update(id: number, updateData: UpdateUserDto) {
+  async update(name: string, updateData: UpdateUserDto) {
     try {
-      await this.JwUserModel.where({ id: id }).update(updateData);
+      await this.JwUserModel.where({ name: name }).update(updateData);
       return true;
     } catch (e) {
       return false;
     }
   }
 
-  async delete(id: number) {
+  async delete(name: string) {
     try {
-      await this.JwUserModel.remove({ id: id });
+      await this.JwUserModel.remove({ name: name });
       return true;
     } catch (e) {
       return false;
     }
   }
 }
-
-// create(createJwUserDto: CreateJwUserDto) {
-//   return 'This action adds a new jwUser';
-// }
-
-// findAll() {
-//   return `This action returns all jwUsers`;
-// }
-
-//   findOne(id: number) {
-//     return `This action returns a #${id} jwUser`;
-//   }
-
-//   update(id: number, updateJwUserDto: UpdateJwUserDto) {
-//     return `This action updates a #${id} jwUser`;
-//   }
-
-//   remove(id: number) {
-//     return `This action removes a #${id} jwUser`;
-//   }
-//
