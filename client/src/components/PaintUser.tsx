@@ -1,14 +1,10 @@
 import { Link } from "react-router-dom";
-import useFetch from "../hooks/useFetch";
-import GetData, { IUser } from "./GetData";
+import GetData from "./GetData";
 
 export default function PaintUser() {
-  const users: IUser[] = useFetch(`http://localhost:3001/jw-users`);
-
   return (
     <div className="users">
       <h2>😎 유저들 😎</h2>
-      {users.length === 0 && <span>로딩 중입니다...😁</span>}
       <table>
         <thead>
           <tr>
@@ -19,9 +15,7 @@ export default function PaintUser() {
             <th>편집</th>
           </tr>
         </thead>
-        {users.map((user) => (
-          <GetData user={user} key={user._id} />
-        ))}
+        <GetData />
       </table>
       <Link to="/jw-users/post">
         <button className="btns">추가</button>
