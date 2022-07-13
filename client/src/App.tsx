@@ -1,18 +1,25 @@
 import "./App.css";
-import GetData from "./GetData";
+import Header from "./components/Header";
+import PaintUser from "./components/PaintUser";
+import Home from "./components/Home";
+import { BrowserRouter } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import UserPost from "./components/UserPost";
+import UserPatch from "./components/UserPatch";
 
+export default App;
 function App() {
   return (
-    <div className="App">
-      <h1>유저들</h1>
-      <tr>
-        <th>이름</th>
-        <th>나이</th>
-        <th>직업</th>
-        <th>주소</th>
-      </tr>
-      <GetData />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/jw-users" element={<PaintUser />} />
+          <Route path="/jw-users/post" element={<UserPost />} />
+          <Route path="/jw-users/patch" element={<UserPatch />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
-export default App;

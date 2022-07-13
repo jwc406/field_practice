@@ -40,8 +40,8 @@ export class JwUsersController {
     return this.jwUsersService.update(userName, updateData);
   }
 
-  @Delete('/:name')
-  async delete(@Param('name') userName: string) {
-    return this.jwUsersService.delete(userName);
+  @Delete('/:id')
+  async delete(@Param('id') id: string) {
+    return this.jwUsersService.delete(id);
   }
 }

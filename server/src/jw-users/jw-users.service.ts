@@ -25,18 +25,18 @@ export class JwUsersService {
     });
   }
 
-  async update(name: string, updateData: UpdateUserDto) {
+  async update(id: string, updateData: UpdateUserDto) {
     try {
-      await this.JwUserModel.where({ name: name }).update(updateData);
+      await this.JwUserModel.where({ _id: id }).update(updateData);
       return true;
     } catch (e) {
       return false;
     }
   }
 
-  async delete(name: string) {
+  async delete(id: string) {
     try {
-      await this.JwUserModel.remove({ name: name });
+      await this.JwUserModel.remove({ _id: id });
       return true;
     } catch (e) {
       return false;
