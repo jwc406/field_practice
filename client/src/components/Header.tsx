@@ -3,9 +3,17 @@ import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <div className="header">
-      <h2>JW's Page</h2>
-      <Link to="/">Home</Link>
-      <Link to="jw-users">Users</Link>
+      <Link to="/">
+        <div className="header_logo">
+          <h3>WMW</h3>
+          <p> : What's My Weather</p>
+        </div>
+      </Link>
+      <div className="header_menus">
+        <Link to="/signIn">sign in</Link>
+        <Link to="/signUp">sign up</Link>
+        <div>최</div>
+      </div>
     </div>
   );
 }
