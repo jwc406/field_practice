@@ -16,6 +16,7 @@ import { JwUser } from './schemas/jw-users.schema';
 export class JwUsersController {
   constructor(private readonly jwUsersService: JwUsersService) {}
 
+  // GET
   @Get()
   async getAll(): Promise<JwUser[]> {
     return await this.jwUsersService.getAll();
