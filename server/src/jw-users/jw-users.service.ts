@@ -15,8 +15,8 @@ export class JwUsersService {
     return await this.JwUserModel.find().exec();
   }
 
-  async getOne(name: string) {
-    return await this.JwUserModel.find({ name: name });
+  async getOne(id: string) {
+    return await this.JwUserModel.find({ _id: id });
   }
 
   async create(JwData: CreateUserDto) {
@@ -27,7 +27,7 @@ export class JwUsersService {
 
   async update(id: string, updateData: UpdateUserDto) {
     try {
-      await this.JwUserModel.where({ _id: id }).update(updateData);
+      await this.JwUserModel.where({ _id: id }).updateOne(updateData);
       return true;
     } catch (e) {
       return false;
@@ -36,7 +36,7 @@ export class JwUsersService {
 
   async delete(id: string) {
     try {
-      await this.JwUserModel.remove({ _id: id });
+      await this.JwUserModel.deleteOne({ _id: id });
       return true;
     } catch (e) {
       return false;

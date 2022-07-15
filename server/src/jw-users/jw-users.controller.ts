@@ -21,10 +21,9 @@ export class JwUsersController {
     return await this.jwUsersService.getAll();
   }
 
-  @Get('/:name')
-  async getOne(@Param('name') userName: string): Promise<JwUser[]> {
-    console.log(userName);
-    return await this.jwUsersService.getOne(userName);
+  @Get('/:id')
+  async getOne(@Param('id') id: string) {
+    return await this.jwUsersService.getOne(id);
   }
 
   @Post()
@@ -32,12 +31,9 @@ export class JwUsersController {
     return await this.jwUsersService.create(JwData);
   }
 
-  @Patch('/:name')
-  async update(
-    @Param('name') userName: string,
-    @Body() updateData: UpdateUserDto,
-  ) {
-    return this.jwUsersService.update(userName, updateData);
+  @Patch('/:id')
+  async update(@Param('id') id: string, @Body() updateData: UpdateUserDto) {
+    return this.jwUsersService.update(id, updateData);
   }
 
   @Delete('/:id')

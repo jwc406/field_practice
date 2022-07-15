@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useRef, useState } from "react";
 
 export default function UserPost() {
@@ -53,24 +53,44 @@ export default function UserPost() {
     <div className="postForm">
       <h2>유저를 추가하세요!</h2>
       <form id="postForm" onSubmit={onSubmit}>
-        이름:
-        <input type="text" name="name" ref={nameRef} />
+        <input
+          type="text"
+          name="name"
+          ref={nameRef}
+          placeholder="이름을 입력하세요"
+        />
         <br></br>
-        나이:
-        <input type="number" name="age" ref={ageRef} />
+        <input
+          type="number"
+          name="age"
+          ref={ageRef}
+          placeholder="나이를 입력하세요"
+        />
         <br></br>
-        직업:
-        <input type="text" name="job" ref={jobRef} />
+        <input
+          type="text"
+          name="job"
+          ref={jobRef}
+          placeholder="직업을 입력하세요"
+        />
         <br></br>
-        주소:
-        <input type="text" name="address" ref={addressRef} />
+        <input
+          type="text"
+          name="address"
+          ref={addressRef}
+          placeholder="주소를 입력하세요"
+        />
         <br></br>
         <button
           style={{
             opacity: isLoading ? 0.3 : 1,
           }}
+          className="btns"
         >
           {isLoading ? "저장 중입니다 ... 😀" : "저장"}
+        </button>
+        <button className="btns btns_del">
+          <Link to="/jw-users">취소</Link>
         </button>
       </form>
     </div>

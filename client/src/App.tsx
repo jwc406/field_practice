@@ -17,7 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/jw-users" element={<PaintUser />} />
           <Route path="/jw-users/post" element={<UserPost />} />
-          <Route path="/jw-users/patch" element={<UserPatch />} />
+          <Route path="/jw-users/:id" element={<UserPatch />} />
         </Routes>
       </div>
     </BrowserRouter>
