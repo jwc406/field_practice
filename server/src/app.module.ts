@@ -5,7 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { JwUsersModule } from './jw-users/jw-users.module';
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb://localhost:27017'), JwUsersModule],
+  imports: [MongooseModule.forRoot('mongodb+srv://project:qwer1234@cluster0.d2fbt.mongodb.net/test'), JwUsersModule],
   controllers: [AppController],
   providers: [AppService],
 })
