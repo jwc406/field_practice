@@ -19,6 +19,15 @@ export class JwUsersService {
     return await this.JwUserModel.find({ _id: id });
   }
 
+  async getUser(userId: string) {
+    const result = Object.keys(await this.JwUserModel.find({ userId: userId }));
+    if (result.length === 0) {
+      return false;
+    } else {
+      return await this.JwUserModel.find({ userId: userId });
+    }
+  }
+
   async create(JwData: CreateUserDto) {
     return await this.JwUserModel.create({
       ...JwData,

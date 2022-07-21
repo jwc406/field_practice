@@ -15,17 +15,15 @@ export default function UserPatch() {
 
     if (
       !isLoading &&
-      nameRef.current &&
-      ageRef.current &&
-      jobRef.current &&
-      addressRef.current
+      userIdRef.current &&
+      emailRef.current &&
+      passwordRef.current
     ) {
       setIsLoading(true);
 
-      const name = nameRef.current.value;
-      const age = Number(ageRef.current.value);
-      const job = jobRef.current.value;
-      const address = addressRef.current.value;
+      const userId = userIdRef.current.value;
+      const email = emailRef.current.value;
+      const password = passwordRef.current.value;
 
       fetch(url, {
         method: "PATCH",
@@ -34,10 +32,9 @@ export default function UserPatch() {
         },
         body: JSON.stringify({
           //수정하는 정보들 입력
-          name,
-          age,
-          address,
-          job,
+          userId,
+          email,
+          password,
         }),
       }).then((res) => {
         if (res.ok) {
@@ -49,66 +46,56 @@ export default function UserPatch() {
     }
   }
 
-  const nameRef = useRef<HTMLInputElement>(null);
-  const ageRef = useRef<HTMLInputElement>(null);
-  const jobRef = useRef<HTMLInputElement>(null);
-  const addressRef = useRef<HTMLInputElement>(null);
+  const userIdRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
 
   return (
     <div className="container">
       <div className="userPatch">
-        <div className="users paintTable">
-          <h2>😎 수정할 유저 😎</h2>
+        <div className="users">
+          <h2>유저 정보</h2>
           <table>
             <thead>
               <tr>
-                <th>이름</th>
-                <th>나이</th>
-                <th>직업</th>
-                <th>주소</th>
+                <th>아이디</th>
+                <th>이메일</th>
+                <th>비밀번호</th>
               </tr>
             </thead>
             <tbody>
               {user.map((value, key) => (
                 <tr key={key}>
-                  <td>{value.name}</td>
-                  <td>{value.age}</td>
-                  <td>{value.job}</td>
-                  <td>{value.address}</td>
+                  <td>{value.userId}</td>
+                  <td>{value.email}</td>
+                  <td>{value.password}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        <div className="postForm">
-          <h2>정보를 수정하세요!</h2>
+        <div className="postForm patch">
+          <h2>수정</h2>
           <form id="postForm" onSubmit={onSubmit}>
             <input
               type="text"
-              name="name"
-              ref={nameRef}
-              placeholder="이름을 입력하세요"
+              name="userId"
+              ref={userIdRef}
+              placeholder="아이디를 입력하세요"
             />
             <br></br>
             <input
-              type="number"
-              name="age"
-              ref={ageRef}
-              placeholder="나이를 입력하세요"
+              type="email"
+              name="email"
+              ref={emailRef}
+              placeholder="이메일을 입력하세요"
             />
             <br></br>
             <input
-              type="text"
-              name="job"
-              ref={jobRef}
-              placeholder="직업을 입력하세요"
-            />
-            <br></br>
-            <input
-              type="text"
-              name="address"
-              ref={addressRef}
-              placeholder="주소를 입력하세요"
+              type="password"
+              name="password"
+              ref={passwordRef}
+              placeholder="비밀번호를 입력하세요"
             />
             <br></br>
             <button

@@ -32,17 +32,15 @@ export default function GetData(u: IProps) {
   return (
     <tbody>
       <tr key={users._id}>
-        <td>{users.name}</td>
-        <td>{users.age}</td>
-        <td>{users.job}</td>
-        <td>{users.address}</td>
+        <td>{users.userId}</td>
+        <td>{users.email}</td>
         <td>
-          <button className="btns">
-            <Link to={`/jw-users/${users._id}`}>수정</Link>
-          </button>
           <button onClick={del} className="btns btns_del">
             삭제
           </button>
+          <Link to={`/jw-users/${users._id}`}>
+            <button className="btns">수정</button>
+          </Link>
         </td>
       </tr>
     </tbody>

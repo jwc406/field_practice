@@ -27,6 +27,22 @@ export class JwUsersController {
     return await this.jwUsersService.getOne(id);
   }
 
+  @Post('/login')
+  async postUser(@Body() body) {
+    const user_id = body.uid;
+    const user_pwd = body.pwd;
+    const idCheck = await this.jwUsersService.getUser(user_id);
+    if (idCheck === false) {
+      return 'idError';
+    } else {
+      if (idCheck[0].password !== user_pwd) {
+        return 'pwError';
+      } else {
+        return 'success';
+      }
+    }
+  }
+
   @Post()
   async create(@Body() JwData: CreateUserDto) {
     return await this.jwUsersService.create(JwData);

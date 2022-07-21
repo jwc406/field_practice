@@ -12,10 +12,8 @@ export default function PaintUser() {
       <table>
         <thead>
           <tr>
-            <th>이름</th>
-            <th>나이</th>
-            <th>직업</th>
-            <th>주소</th>
+            <th>아이디</th>
+            <th>이메일</th>
             <th>편집</th>
           </tr>
         </thead>
@@ -23,12 +21,12 @@ export default function PaintUser() {
           <GetData user={users} key={users._id} />
         ))}
       </table>
-      <Link to="/jw-users/post">
+      <Link to="/">
         <button
           className="btns"
           style={{ marginTop: "30px", width: "80px", height: "40px" }}
         >
-          추가
+          Home
         </button>
       </Link>
     </div>

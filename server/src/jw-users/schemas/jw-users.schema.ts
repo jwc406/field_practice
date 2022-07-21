@@ -6,16 +6,13 @@ export type JwUserDocument = JwUser & Document;
 @Schema()
 export class JwUser {
   @Prop()
-  name: string;
+  userId: string;
 
   @Prop()
-  age: number;
+  email: string;
 
   @Prop()
-  address: string;
-
-  @Prop()
-  job: string;
+  password: string;
 }
 
 export const JwUserSchema = SchemaFactory.createForClass(JwUser);
