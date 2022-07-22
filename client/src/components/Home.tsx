@@ -3,7 +3,16 @@ export default function Home(isLogin: any) {
   return (
     <div className="home">
       <div className="home-article">
-        {loginCheck ? null : (
+        {loginCheck ? (
+          <p
+            style={{
+              marginBottom: "30px",
+              color: "blue",
+            }}
+          >
+            {sessionStorage.getItem("loginId")} 님, 안녕하세요 😊
+          </p>
+        ) : (
           <p
             style={{
               marginBottom: "30px",
