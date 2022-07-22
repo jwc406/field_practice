@@ -87,6 +87,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 4%;
 }
 
 table {
@@ -97,21 +98,20 @@ table {
   border: 1px solid black;
 }
 
-h2 {
-  padding: 3% 0;
-}
-
 .users th,
 td {
   width: 200px;
   border: 1px solid darkgray;
   text-align: center;
-  /* font-size: 10px; */
   padding: 1%;
 }
 
 .users th {
   background-color: aliceblue;
+}
+
+.edits {
+  width: 100px;
 }
 
 .container {
@@ -120,13 +120,20 @@ td {
   margin-top: 3%;
 }
 
+.patch {
+  padding: 1% 0 0 5%;
+}
+
 .userPatch {
   display: flex;
 }
 
 .inputForm {
   margin-bottom: 30px;
-  background-color: aliceblue;
+}
+
+.inputForm h2 {
+  margin-bottom: 30px;
 }
 
 input {
@@ -146,9 +153,8 @@ input:focus {
 
 .formContainer {
   display: flex;
-  background-color: beige;
-  width: 50%;
   flex-direction: column;
+  margin-top: 5%;
   align-items: center;
 }
 
@@ -156,6 +162,13 @@ input:focus {
   width: 250px;
 }
 
-.patch {
-  padding: 1% 0 0 5%;
+.signUpBtns {
+  display: flex;
+  width: 250px;
+  margin-top: 10%;
+  justify-content: space-between;
+}
+
+.signUpBtns * {
+  width: 120px;
 }

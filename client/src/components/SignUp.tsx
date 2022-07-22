@@ -50,9 +50,9 @@ export default function SignUp() {
   const passwordRef = useRef<HTMLInputElement>(null);
 
   return (
-    <div className="postForm">
-      <h2>회원가입</h2>
-      <form id="postForm" onSubmit={onSubmit}>
+    <div className="formContainer">
+      <form className="inputForm" onSubmit={onSubmit}>
+        <h2>회원가입</h2>
         <input
           type="text"
           name="userId"
@@ -74,19 +74,24 @@ export default function SignUp() {
           placeholder="비밀번호를 입력하세요"
         />
         <br></br>
-        {isLoading ? (
-          <LoadingButton loading loadingIndicator="Loading…" variant="outlined">
-            Submit
-          </LoadingButton>
-        ) : (
-          <Button type="submit" variant="contained">
-            가입
+        <div className="signUpBtns">
+          {isLoading ? (
+            <LoadingButton
+              loading
+              loadingIndicator="Loading…"
+              variant="outlined"
+            >
+              Submit
+            </LoadingButton>
+          ) : (
+            <Button type="submit" variant="contained">
+              가입
+            </Button>
+          )}
+          <Button variant="outlined">
+            <Link to="/jw-users">취소</Link>
           </Button>
-        )}
-
-        <Button variant="outlined">
-          <Link to="/jw-users">취소</Link>
-        </Button>
+        </div>
       </form>
     </div>
   );

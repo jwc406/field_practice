@@ -3,6 +3,9 @@ import React, { useRef, useState } from "react";
 import useFetch from "../hooks/useFetch";
 import IUser from "../interfaces/IUser.interface";
 
+import Button from "@mui/material/Button";
+import LoadingButton from "@mui/lab/LoadingButton";
+
 export default function UserPatch() {
   const url = "http://localhost:3001" + window.location.pathname;
   const user: IUser[] = useFetch(url);
@@ -54,7 +57,13 @@ export default function UserPatch() {
     <div className="container">
       <div className="userPatch">
         <div className="users">
-          <h2>유저 정보</h2>
+          <h2
+            style={{
+              margin: "3% 0 7% 0 ",
+            }}
+          >
+            유저 정보
+          </h2>
           <table>
             <thead>
               <tr>
@@ -74,9 +83,9 @@ export default function UserPatch() {
             </tbody>
           </table>
         </div>
-        <div className="postForm patch">
-          <h2>수정</h2>
-          <form id="postForm" onSubmit={onSubmit}>
+        <div className="formContainer patch">
+          <form className="inputForm" onSubmit={onSubmit}>
+            <h2>수정</h2>
             <input
               type="text"
               name="userId"
@@ -98,17 +107,24 @@ export default function UserPatch() {
               placeholder="비밀번호를 입력하세요"
             />
             <br></br>
-            <button
-              style={{
-                opacity: isLoading ? 0.3 : 1,
-              }}
-              className="btns"
-            >
-              {isLoading ? "수정 중입니다 ... 😀" : "수정"}
-            </button>
-            <button className="btns btns_del">
-              <Link to="/jw-users">취소</Link>
-            </button>
+            <div className="signUpBtns">
+              {isLoading ? (
+                <LoadingButton
+                  loading
+                  loadingIndicator="Loading…"
+                  variant="outlined"
+                >
+                  Submit
+                </LoadingButton>
+              ) : (
+                <Button type="submit" variant="contained">
+                  수정
+                </Button>
+              )}
+              <Button variant="outlined">
+                <Link to="/jw-users">취소</Link>
+              </Button>
+            </div>
           </form>
         </div>
       </div>

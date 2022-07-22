@@ -8,7 +8,13 @@ export default function PaintUser() {
 
   return (
     <div className="users">
-      <h2>😎 유저들 😎</h2>
+      <h2
+        style={{
+          marginBottom: "3%",
+        }}
+      >
+        😎 유저들 😎
+      </h2>
       <table>
         <thead>
           <tr>
@@ -21,14 +27,6 @@ export default function PaintUser() {
           <GetData user={users} key={users._id} />
         ))}
       </table>
-      <Link to="/">
-        <button
-          className="btns"
-          style={{ marginTop: "30px", width: "80px", height: "40px" }}
-        >
-          Home
-        </button>
-      </Link>
     </div>
   );
 }

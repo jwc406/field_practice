@@ -2,6 +2,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import IUser from "../interfaces/IUser.interface";
 
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import { IconButton } from "@mui/material";
+
 interface IProps {
   user: IUser;
 }
@@ -36,11 +40,13 @@ export default function GetData(u: IProps) {
         <td>{users.email}</td>
         <td>
           <Link to={`/jw-users/${users._id}`}>
-            <button className="btns">수정</button>
+            <IconButton>
+              <EditIcon />
+            </IconButton>
           </Link>
-          <button onClick={del} className="btns btns_del">
-            삭제
-          </button>
+          <IconButton onClick={del}>
+            <DeleteIcon />
+          </IconButton>
         </td>
       </tr>
     </tbody>
