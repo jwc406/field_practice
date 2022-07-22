@@ -2,6 +2,9 @@ import React from "react";
 import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+import Button from "@mui/material/Button";
+import LoadingButton from "@mui/lab/LoadingButton";
+
 export default function SignUp() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
@@ -71,17 +74,19 @@ export default function SignUp() {
           placeholder="비밀번호를 입력하세요"
         />
         <br></br>
-        <button
-          style={{
-            opacity: isLoading ? 0.3 : 1,
-          }}
-          className="btns"
-        >
-          {isLoading ? "가입 중입니다 ... 😀" : "회원가입"}
-        </button>
-        <button className="btns btns_del">
+        {isLoading ? (
+          <LoadingButton loading loadingIndicator="Loading…" variant="outlined">
+            Submit
+          </LoadingButton>
+        ) : (
+          <Button type="submit" variant="contained">
+            가입
+          </Button>
+        )}
+
+        <Button variant="outlined">
           <Link to="/jw-users">취소</Link>
-        </button>
+        </Button>
       </form>
     </div>
   );

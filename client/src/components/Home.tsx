@@ -10,7 +10,7 @@ export default function Home(isLogin: any) {
               color: "blue",
             }}
           >
-            {sessionStorage.getItem("loginId")} 님, 안녕하세요 😊
+            {sessionStorage.getItem("loginId")}님, 안녕하세요 😊
           </p>
         ) : (
           <p

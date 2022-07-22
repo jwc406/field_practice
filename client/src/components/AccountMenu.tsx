@@ -25,7 +25,7 @@ export default function AccountMenu() {
   return (
     <React.Fragment>
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
-        <Tooltip title="Account settings">
+        <Tooltip title="계정">
           <IconButton
             onClick={handleClick}
             size="small"
@@ -33,7 +33,7 @@ export default function AccountMenu() {
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
           >
-            <Avatar sx={{ width: 40, height: 40 }}>M</Avatar>
+            <Avatar sx={{ width: 35, height: 35 }}></Avatar>
           </IconButton>
         </Tooltip>
       </Box>
@@ -74,7 +74,7 @@ export default function AccountMenu() {
       >
         <Link to="/myPage">
           <MenuItem>
-            <Avatar /> My account
+            <Avatar /> 내 계정
           </MenuItem>
         </Link>
         <Divider />
@@ -83,7 +83,7 @@ export default function AccountMenu() {
             <ListItemIcon>
               <PersonAdd fontSize="small" />
             </ListItemIcon>
-            Add another account
+            회원가입
           </MenuItem>
         </Link>
         <Link to="/jw-users">
@@ -91,14 +91,14 @@ export default function AccountMenu() {
             <ListItemIcon>
               <Settings fontSize="small" />
             </ListItemIcon>
-            Admin Page
+            관리자
           </MenuItem>
         </Link>
         <MenuItem>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
-          Logout
+          로그아웃
         </MenuItem>
       </Menu>
     </React.Fragment>

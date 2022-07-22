@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+
+import Button from "@mui/material/Button";
 
 export default function SignIn() {
   const [uid, setUid] = React.useState("");
@@ -40,9 +41,9 @@ export default function SignIn() {
   }, []);
 
   return (
-    <div className="postForm">
-      <h2>로그인</h2>
+    <div className="formContainer">
       <div className="inputForm">
+        <h2>로그인</h2>
         <input
           type="text"
           name="uid"
@@ -59,12 +60,9 @@ export default function SignIn() {
           onChange={handlePwd}
         />
       </div>
-      <button onClick={onClickLogin} className="btns">
+      <Button className="btn" onClick={onClickLogin} variant="contained">
         로그인
-      </button>
-      <button className="btns btns_del">
-        <Link to="/jw-users">취소</Link>
-      </button>
+      </Button>
     </div>
   );
 }
