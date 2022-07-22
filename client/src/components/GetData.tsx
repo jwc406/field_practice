@@ -35,12 +35,12 @@ export default function GetData(u: IProps) {
         <td>{users.userId}</td>
         <td>{users.email}</td>
         <td>
-          <button onClick={del} className="btns btns_del">
-            삭제
-          </button>
           <Link to={`/jw-users/${users._id}`}>
             <button className="btns">수정</button>
           </Link>
+          <button onClick={del} className="btns btns_del">
+            삭제
+          </button>
         </td>
       </tr>
     </tbody>

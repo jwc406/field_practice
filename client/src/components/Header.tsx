@@ -1,36 +1,30 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AccountMenu from "./AccountMenu";
+import { useNavigate } from "react-router-dom";
 
-export default function Header() {
-  const [isLogin, setIsLogin] = useState(false);
-
-  useEffect(() => {
-    if (sessionStorage.getItem("loginId") === null) {
-      console.log("로그인 필요");
-    } else {
-      setIsLogin(true);
-    }
-  }, []);
+export default function Header({ isLogin, setIsLogin }: any) {
+  const navigate = useNavigate();
 
   function logout() {
-    sessionStorage.setItem("loginId", "");
     alert("로그아웃 하였습니다");
-    return setIsLogin(false);
+    setIsLogin(false);
+    sessionStorage.removeItem("loginId");
+    navigate("/");
   }
 
   return (
     <div className="header">
-      <Link to="/">
-        <div className="header_logo">
+      <div className="header_logos">
+        <Link to="/">
           <h3>WMW</h3>
-          <p> : What's My Weather</p>
-        </div>
-      </Link>
-      <div className="header_menus">
+        </Link>
         <Link to="/weather">Weather</Link>
+      </div>
+      <div className="header_menus">
         {isLogin ? (
-          <button onClick={logout}>Logout</button>
+          <Link onClick={logout} to={""}>
+            Logout
+          </Link>
         ) : (
           <Link to="/signIn">sign in</Link>
         )}

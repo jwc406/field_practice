@@ -1,13 +1,10 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 export default function SignIn() {
   const [uid, setUid] = React.useState("");
   const [pwd, setPwd] = React.useState("");
-
-  const navigate = useNavigate();
 
   const handleUid = (e: any) => {
     setUid(e.target.value);
@@ -29,9 +26,9 @@ export default function SignIn() {
         else {
           if (res.data === "pwError") return alert("비밀번호가 틀렸습니다 😥");
           else {
-            alert("로그인 성공!");
             sessionStorage.setItem("loginId", uid);
-            navigate("/");
+            alert("로그인 되었습니다!");
+            window.location.replace("/");
           }
         }
       })

@@ -32,30 +32,41 @@ a {
   align-items: center;
   opacity: 0.9;
   width: 100vw;
-  padding: 1% 5%;
+  padding: 1% 10%;
 }
 
-.header_logo {
+.header {
   display: flex;
-  align-items: center;
+  justify-content: space-between;
 }
 
-.header_menus {
-  display: flex;
-  width: 25%;
-  justify-content: space-evenly;
-  align-items: center;
+.header h3 {
+  text-align: left;
 }
 
 .header a {
   color: white;
 }
 
+.header_logos {
+  display: flex;
+  align-items: center;
+  flex-basis: 140px;
+  justify-content: space-between;
+}
+
+.header_menus {
+  display: flex;
+  align-items: center;
+  flex-basis: 200px;
+  justify-content: space-between;
+}
+
 .home {
   background-color: white;
   display: flex;
   align-items: center;
-  margin: 0 5%;
+  margin: 0 10%;
 }
 
 .home-article {
